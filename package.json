@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-filedownloader",
+  "version": "1.0.4",
+  "description": "Plugin to download files for Android devices",
+  "cordova": {
+    "id": "cordova-plugin-fileopener",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victir/cordova-plugin-downloader.git"
+  },
+  "keywords": [
+    "file",
+    "downloader",
+    "android",
+    "cordova",
+    "plugin",
+    "cordova-android"
+  ],
+  "author": "victir"
+}

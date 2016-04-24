@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-file-downloader" version="1.0.4" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>FileDownloader</name>
+    <description>Plugin to download for Android devices</description>
+    <author>Victir</author>
+    <license>MIT</license>
+    <keywords>file, downloader, android, cordova, plugin</keywords>
+    <repo>https://github.com/victir/cordova-plugin-downloader</repo>
+    <js-module name="FileDownloader" src="www/FileDownloader.js">
+        <clobbers target="cordova.plugins.FileDownloader"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="FileDownloader">
+                <param name="android-package" value="org.apache.cordova.filedownloader.FileDownloader"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <source-file src="src/android/FileDownloader.java" target-dir="src/org/apache/cordova/filedownloader"/>
+    </platform>
+</plugin>
