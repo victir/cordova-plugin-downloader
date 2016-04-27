@@ -37,7 +37,8 @@ public class FileDownloader extends CordovaPlugin {
         if ("startDownloading".equals(action)) {
             if (extension != null) {
               String fileURL = args.getString(0);
-              this.downloadFile(context, fileURL, callbackContext);
+              String fileName = args.getString(1);
+              this.downloadFile(context, fileURL, fileName, callbackContext);
             }
             return true;
         } else {
@@ -64,9 +65,15 @@ public class FileDownloader extends CordovaPlugin {
         }
     }
 
-    private void downloadFile(final Context context, final String fileUrl, final CallbackContext callbackContext) {
-        final String filename = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+    private void downloadFile(final Context context, final String fileUrl, final String fileName, final CallbackContext callbackContext) {
         final String extension = fileUrl.substring(fileUrl.lastIndexOf("."));
+        final String filename;
+        if (fileName != null) {
+          filename = fileName + extension;
+        } else {
+          filename = "file";
+        }
+
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(fileUrl));

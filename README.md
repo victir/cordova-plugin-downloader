@@ -11,7 +11,7 @@ When you need to download file, with history about downloads in device.
 
   url = 'https://codereviewvideos.com/blog/wp-content/uploads/2015/05/ionic-logo-horizontal-transparent.png'
 
-  window.cordova.plugins.FileDownloader.startDownloading url
+  window.cordova.plugins.FileDownloader.startDownloading url, fileName
     , (data)->
       alert data
     , (error) ->
